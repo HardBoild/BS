@@ -31,5 +31,9 @@ public interface TblUserMapper {
     @Update("UPDATE TBL_USER SET password = #{password} WHERE phone = #{phone}")
     int changePassword(@Param("phone") String phone,@Param("password") String password);
 
+    //count user num
+    @Select("")
+    int countUserNum();
+
 
 }
