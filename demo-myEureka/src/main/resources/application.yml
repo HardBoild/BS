@@ -1,0 +1,11 @@
+server:
+  port: 10016 # 将服务器端口号修改
+eureka:
+  instance:
+    hostname: localhost # 表示访问的是本地
+  client:
+    register-with-eureka: false # 默认情况下，这个应用会向注册中心注册自己，设置为false表示这种默认行为
+    fetch-registry: false # 表示不会去检索其他服务
+    #enable-self-preservation: false # 设置为false表示关闭保护模式
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/

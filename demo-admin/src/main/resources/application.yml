@@ -1,0 +1,24 @@
+db:
+  host: localhost
+  port: 3306
+  username: root
+  password:
+  database: tourism
+mybatis:
+  type-aliases-package: com.jit.pojo
+spring:
+  application:
+    name: demo-admin
+  datasource:
+      driverClassName: com.mysql.jdbc.Driver
+      url: jdbc:mysql://${db.host}:${db.port}/${db.database}?characterEncoding=utf8
+      username: ${db.username}
+      password: ${db.password}
+server:
+  port: 8082 # 将服务器端口号修改
+eureka:
+  client:
+    register-with-eureka: true # 需要将我的服务注册到eureka上
+    fetch-registry: true # 表示会去检索其他服务
+    service-url:
+      defaultZone: http://localhost:10016/eureka/
