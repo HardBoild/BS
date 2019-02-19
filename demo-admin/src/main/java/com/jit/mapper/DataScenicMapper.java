@@ -13,4 +13,7 @@ import java.util.List;
 public interface DataScenicMapper {
     @Select("SELECT * FROM DATA_SCENIC ")
     List<DataScenic> selectAllScenicInform();
+    //带地址查询条件，模糊查询，查出所有带地址条件的
+    @Select("SELECT * FROM DATA_SCENIC WHERE data_scenic.itemProvince LIKE\"%\"#{provinceName}\"%\"")
+    List<DataScenic> selectLikeProvince(String provinceName);
 }

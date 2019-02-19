@@ -4,6 +4,7 @@ import cn.hutool.json.JSONObject;
 import com.jit.service.DataScenicService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Controller;
@@ -32,6 +33,13 @@ public class DataScenicController {
         return jsonObject;
     }
 
-
+    @GetMapping("/getProvinceAndPeopleNum")
+    @ResponseBody
+    @ApiOperation("hashtable获取省-去过人数")
+    public Object getProvinceAndPeopleNum(){
+        String pp[][]=new String[34][2];
+        dataScenicService.getProvinceAndPeopleNum(pp);
+        return pp;
+    }
 
 }

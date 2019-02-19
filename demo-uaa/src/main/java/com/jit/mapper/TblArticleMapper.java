@@ -1,9 +1,13 @@
 package com.jit.mapper;
 
+import com.jit.pojo.TblArticle;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 /**
  * Created by Mengyuan.Yu on 2019/2/14.
@@ -21,4 +25,9 @@ public interface TblArticleMapper {
     //审核文章
     @Update("UPDATE TBL_ARTICLE SET article_status=#{article_status} WHERE article_id=#{article_id}")
     int changeStatus(@Param("article_id")int article_id,@Param("article_status")int article_status);
+
+    //所有文章
+    @Select("SELECT * FROM TBL_ARTICLE")
+    List<TblArticle> getAllArticle();
+
 }

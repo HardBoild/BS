@@ -9,19 +9,30 @@ import org.springframework.stereotype.Component;
 @Component
 @EntityScan
 public class DataScenic {
+    private String itemId;
+    private String itemHref;
     private String itemImg;
     private String itemTitle;
     private String itemProvince;
     private String itemLocal;
     private String itemPrice;
-    private String itemHref;
+    private String itemCommentLevel;
+    private String itemNum;
 
-    public String getItemImg() {
-        return itemImg;
+    public String getItemLocal() {
+        return itemLocal;
     }
 
-    public void setItemImg(String itemImg) {
-        this.itemImg = itemImg;
+    public void setItemLocal(String itemLocal) {
+        this.itemLocal = itemLocal;
+    }
+
+    public String getItemId() {
+        return itemId;
+    }
+
+    public void setItemId(String itemId) {
+        this.itemId = itemId;
     }
 
     public String getItemHref() {
@@ -30,6 +41,14 @@ public class DataScenic {
 
     public void setItemHref(String itemHref) {
         this.itemHref = itemHref;
+    }
+
+    public String getItemImg() {
+        return itemImg;
+    }
+
+    public void setItemImg(String itemImg) {
+        this.itemImg = itemImg;
     }
 
     public String getItemTitle() {
@@ -48,14 +67,6 @@ public class DataScenic {
         this.itemProvince = itemProvince;
     }
 
-    public String getItemLocal() {
-        return itemLocal;
-    }
-
-    public void setItemLocal(String itemLocal) {
-        this.itemLocal = itemLocal;
-    }
-
     public String getItemPrice() {
         return itemPrice;
     }
@@ -64,5 +75,20 @@ public class DataScenic {
         this.itemPrice = itemPrice;
     }
 
+    public String getItemCommentLevel() {
+        return itemCommentLevel;
+    }
+
+    public void setItemCommentLevel(String itemCommentLevel) {
+        this.itemCommentLevel = itemCommentLevel;
+    }
+
+    public String getItemNum() {
+        return itemNum;
+    }
+
+    public void setItemNum(String itemNum) {
+        this.itemNum = itemNum;
+    }
 
 }

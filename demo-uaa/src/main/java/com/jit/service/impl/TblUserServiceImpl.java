@@ -19,6 +19,12 @@ public class TblUserServiceImpl implements TblUserService {
         //System.out.println(tblUserMapper.findByPhone(phone,password).getRegistration_time());
         return tblUserMapper.findByPhone(phone,password);
     }
+
+    @Override
+    public int countUserNum() {
+        return tblUserMapper.countUserNum();
+    }
+
     @Override
     public void insertUser(String username,String password,String phone,int role,String email,Date registration_time) {
         tblUserMapper.insert(username,password,phone,role,email,registration_time);

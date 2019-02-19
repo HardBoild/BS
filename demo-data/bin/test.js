@@ -62,6 +62,8 @@ function show(item){
                     var itemPrice = $(this).find('.product-regular .product-info .product-price em').text();
                     var itemCommentLevel = $(this).find('.product-regular .product-info .product-number b').text();
                     var itemNum = $(this).find('.product-regular .product-info .product-number a').text();
+                    itemNum=itemNum.substring(3,itemNum.length-3);
+                    if(itemNum=="") itemNum='0';
                     //var page= $(this).find('.paging .pagebox a').attr('href');
                     var addSql = "insert into data_scenic(itemHref,itemImg,itemTitle,itemProvince,itemLocal,itemPrice,itemCommentLevel,itemNum) values (?,?,?,?,?,?,?,?)";
                     var addParmas = [ itemHref,itemImg,itemTitle,itemProvince,itemLocal,itemPrice,itemCommentLevel,itemNum];

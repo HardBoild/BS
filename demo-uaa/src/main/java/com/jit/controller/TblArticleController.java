@@ -1,5 +1,6 @@
 package com.jit.controller;
 
+import cn.hutool.json.JSONObject;
 import com.jit.pojo.TblArticle;
 import com.jit.service.TblArticleService;
 import io.swagger.annotations.Api;
@@ -31,13 +32,19 @@ public class TblArticleController {
     @ResponseBody
     @ApiOperation("管理员修改文章审核状态")
     public String changeArticleStatus(@RequestParam(value = "article_id")int article_id,
-                                            @RequestParam(value = "article_status")int article_status)
-    {
+                                            @RequestParam(value = "article_status")int article_status) {
         if(tblArticleService.changeStatus(article_id,article_status)>0)
             return "success";
         return "failed";
     }
-
+    @GetMapping("/getAllArticle")
+    @ResponseBody
+    @ApiOperation("获取所有用户文章")
+    public Object getAllArticle(){
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("articleList",tblArticleService.getAllArticle());
+        return jsonObject;
+    }
 
 
 }

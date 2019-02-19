@@ -7,6 +7,8 @@ import com.jit.service.TblUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 
 /**
  * Created by Mengyuan.Yu on 2019/2/14.
@@ -25,5 +27,10 @@ public class TblArticleServiceImpl implements TblArticleService{
     @Override
     public int changeStatus(int article_id, int article_status) {
         return tblArticleMapper.changeStatus(article_id,article_status);
+    }
+
+    @Override
+    public List<TblArticle> getAllArticle() {
+        return tblArticleMapper.getAllArticle();
     }
 }

@@ -58,4 +58,11 @@ public class TblUserController {
     {
         return tblUserService.changePassword(phone,password);
     }
+    @GetMapping("/countUserNum")
+    @ResponseBody
+    @ApiOperation("获取所有用户量")
+    public int countUserNum()
+    {
+        return tblUserService.countUserNum();
+    }
 }

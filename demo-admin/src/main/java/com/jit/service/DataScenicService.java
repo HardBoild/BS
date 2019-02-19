@@ -2,6 +2,7 @@ package com.jit.service;
 
 import com.jit.pojo.DataScenic;
 
+import java.util.Hashtable;
 import java.util.List;
 
 /**
@@ -9,5 +10,6 @@ import java.util.List;
  */
 public interface DataScenicService {
     List<DataScenic> getAllDataScenic();
+    void getProvinceAndPeopleNum(String pp[][]);
 
 }
