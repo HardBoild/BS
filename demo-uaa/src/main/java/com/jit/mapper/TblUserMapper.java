@@ -32,8 +32,7 @@ public interface TblUserMapper {
     int changePassword(@Param("phone") String phone,@Param("password") String password);
 
     //count user num
-    @Select("")
+    @Select("SELECT Count(tbl_user.role) FROM tbl_user WHERE role = 1")
     int countUserNum();
-
 
 }
