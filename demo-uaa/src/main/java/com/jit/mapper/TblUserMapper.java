@@ -35,4 +35,8 @@ public interface TblUserMapper {
     @Select("SELECT Count(tbl_user.role) FROM tbl_user WHERE role = 1")
     int countUserNum();
 
+    //getUserByUserId
+    @Select("SELECT * from TBL_USER WHERE user_id=#{user_id}")
+    TblUser getUserById(String user_id);
+
 }

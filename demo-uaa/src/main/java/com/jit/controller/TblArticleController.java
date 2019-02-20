@@ -10,6 +10,8 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
+
 /**
  * Created by Mengyuan.Yu on 2019/2/12.
  */
@@ -18,7 +20,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/TblArticle")
 @Api(description = "用户旅游心得分享管理")
 public class TblArticleController {
-    @Autowired
+    @Resource
     private TblArticleService tblArticleService;
     @PostMapping("/addNewArticle")
     @ResponseBody
@@ -46,5 +48,11 @@ public class TblArticleController {
         return jsonObject;
     }
 
+    @PostMapping("/getArticlesByCondition")
+    @ResponseBody
+    @ApiOperation("带条件查询部分随笔")
+    public Object getArticlesByCondition(String condition){
+        return tblArticleService.getArticlesByCondition(condition);
+    }
 
 }

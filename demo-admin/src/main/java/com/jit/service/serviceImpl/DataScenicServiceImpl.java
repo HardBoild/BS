@@ -2,6 +2,7 @@ package com.jit.service.serviceImpl;
 
 import com.jit.mapper.DataScenicMapper;
 import com.jit.pojo.DataScenic;
+import com.jit.pojo.TblInform;
 import com.jit.service.DataScenicService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -48,4 +49,5 @@ public class DataScenicServiceImpl implements DataScenicService{
             pp[i][1]= num+"";
         }
     }
+
 }

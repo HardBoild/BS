@@ -26,7 +26,7 @@ public class DataScenicController {
     private DataScenicService dataScenicService;
     @GetMapping("/getAllDataScenic")
     @ResponseBody
-    @ApiOperation("用户新增一篇文章")
+    @ApiOperation("获取所有景点信息")
     public Object getAllDataScenic(){
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("dataScenic",dataScenicService.getAllDataScenic());
@@ -35,7 +35,7 @@ public class DataScenicController {
 
     @GetMapping("/getProvinceAndPeopleNum")
     @ResponseBody
-    @ApiOperation("hashtable获取省-去过人数")
+    @ApiOperation("二维数组获取省----点评过人数")
     public Object getProvinceAndPeopleNum(){
         String pp[][]=new String[34][2];
         dataScenicService.getProvinceAndPeopleNum(pp);

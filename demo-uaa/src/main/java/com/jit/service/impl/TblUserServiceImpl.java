@@ -26,6 +26,11 @@ public class TblUserServiceImpl implements TblUserService {
     }
 
     @Override
+    public TblUser getUserById(String user_id) {
+        return tblUserMapper.getUserById(user_id);
+    }
+
+    @Override
     public void insertUser(String username,String password,String phone,int role,String email,Date registration_time) {
         tblUserMapper.insert(username,password,phone,role,email,registration_time);
     }

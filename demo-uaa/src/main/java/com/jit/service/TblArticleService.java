@@ -11,4 +11,5 @@ public interface TblArticleService {
     int insertArticle(TblArticle tblArticle);
     int changeStatus(int article_id,int status);
     List<TblArticle> getAllArticle();
+    Object getArticlesByCondition(String condition);
 }

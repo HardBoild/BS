@@ -13,4 +13,5 @@ public interface TblUserService {
     public String changePassword(String phone,String password);
     public TblUser getUserByPhone(String phone,String password);
     public int countUserNum();
+    public TblUser getUserById(String user_id);
 }

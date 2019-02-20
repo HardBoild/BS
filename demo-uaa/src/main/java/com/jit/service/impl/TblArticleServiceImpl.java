@@ -1,5 +1,6 @@
 package com.jit.service.impl;
 
+import cn.hutool.json.JSONObject;
 import com.jit.mapper.TblArticleMapper;
 import com.jit.pojo.TblArticle;
 import com.jit.service.TblArticleService;
@@ -32,5 +33,13 @@ public class TblArticleServiceImpl implements TblArticleService{
     @Override
     public List<TblArticle> getAllArticle() {
         return tblArticleMapper.getAllArticle();
+    }
+
+    @Override
+    public Object getArticlesByCondition(String condition) {
+        List<TblArticle> list=tblArticleMapper.getArticlesByCondition(condition);
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("articlesByCondition",list);
+        return jsonObject;
     }
 }

@@ -27,7 +27,11 @@ public interface TblArticleMapper {
     int changeStatus(@Param("article_id")int article_id,@Param("article_status")int article_status);
 
     //所有文章
-    @Select("SELECT * FROM TBL_ARTICLE")
+    @Select("SELECT * FROM TBL_ARTICLE WHERE article_status=1")
     List<TblArticle> getAllArticle();
+
+    //根据条件查询文章
+    @Select("SELECT * FROM TBL_ARTICLE WHERE article_abstract  LIKE\"%\"#{condition}\"%\" AND article_status=1")
+    List<TblArticle> getArticlesByCondition(String condition);
 
 }

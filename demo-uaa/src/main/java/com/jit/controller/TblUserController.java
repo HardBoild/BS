@@ -65,4 +65,10 @@ public class TblUserController {
     {
         return tblUserService.countUserNum();
     }
+    @PostMapping("/getUserById")
+    @ResponseBody
+    @ApiOperation("通过用户id获取该用户的所有信息")
+    public Object getUserById(String user_id){
+        return tblUserService.getUserById(user_id);
+    }
 }
