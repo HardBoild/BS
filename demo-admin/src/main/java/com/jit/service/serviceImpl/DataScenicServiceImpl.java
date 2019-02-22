@@ -23,7 +23,7 @@ public class DataScenicServiceImpl implements DataScenicService{
         return dataScenicMapper.selectAllScenicInform();
     }
 
-    //使用Hashtable的原因是因为Hashmap是线程不安全的，Hashtable是线程安全的
+    //Hashmap是线程不安全的，Hashtable是线程安全的
     @Override
     public void getProvinceAndPeopleNum(String pp[][]) {
         //Hashtable hashtable=new Hashtable();
