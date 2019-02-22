@@ -55,4 +55,24 @@ public class TblArticleController {
         return tblArticleService.getArticlesByCondition(condition);
     }
 
+    @GetMapping("/getArticlesByUserId")
+    @ResponseBody
+    @ApiOperation("获取一个用户下的所有文章")
+    public Object getArticlesByUserId(@RequestParam(value = "user_id")int user_id){
+        return tblArticleService.getArticlesByUserId(user_id);
+    }
+
+    @PostMapping("/updateAnArticle")
+    @ResponseBody
+    @ApiOperation("更新一篇文章")
+    public int updateAnArticle(@RequestBody TblArticle tblArticle){
+        return tblArticleService.updateAnArticle(tblArticle);
+    }
+    @PostMapping("/deleteArticles")
+    @ResponseBody
+    @ApiOperation("可以批量删除文章")
+    public int deleteArticles(@RequestParam(value = "article_ids")String article_ids){
+        return tblArticleService.deleteAnArticle(article_ids);
+    }
+
 }

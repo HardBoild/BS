@@ -42,4 +42,25 @@ public class TblArticleServiceImpl implements TblArticleService{
         jsonObject.put("articlesByCondition",list);
         return jsonObject;
     }
+
+    @Override
+    public Object getArticlesByUserId(int user_id) {
+        List<TblArticle> list=tblArticleMapper.getArticlesByUserId(user_id);
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("articleByUserId",list);
+        return jsonObject;
+    }
+
+    @Override
+    public int updateAnArticle(TblArticle tblArticle) {
+        return tblArticleMapper.updateAnArticle(tblArticle.getArticle_title(),tblArticle.getArticle_abstract(),tblArticle.getArticle_body(),tblArticle.getArticle_id());
+    }
+
+    @Override
+    public int deleteAnArticle(String article_id) {
+        //String temp = article_id.replace(",","','");
+        //article_id="\'"+article_id+"\'";
+        System.out.println(article_id);
+        return tblArticleMapper.deleteAnArticle(article_id);
+    }
 }
