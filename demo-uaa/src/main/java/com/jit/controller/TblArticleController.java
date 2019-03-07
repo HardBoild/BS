@@ -5,11 +5,10 @@ import com.jit.pojo.TblArticle;
 import com.jit.service.TblArticleService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-
+import java.util.List;
 import javax.annotation.Resource;
 
 /**
@@ -58,7 +57,7 @@ public class TblArticleController {
     @GetMapping("/getArticlesByUserId")
     @ResponseBody
     @ApiOperation("获取一个用户下的所有文章")
-    public Object getArticlesByUserId(@RequestParam(value = "user_id")int user_id){
+    public List getArticlesByUserId(@RequestParam(value = "user_id")int user_id){
         return tblArticleService.getArticlesByUserId(user_id);
     }
 
@@ -70,9 +69,9 @@ public class TblArticleController {
     }
     @PostMapping("/deleteArticles")
     @ResponseBody
-    @ApiOperation("可以批量删除文章")
-    public int deleteArticles(@RequestParam(value = "article_ids")String article_ids){
-        return tblArticleService.deleteAnArticle(article_ids);
+    @ApiOperation("批量删除文章")
+    public int deleteArticles(@RequestParam("id") String[] article_ids){
+        return tblArticleService.deleteArticles(article_ids);
     }
 
 }

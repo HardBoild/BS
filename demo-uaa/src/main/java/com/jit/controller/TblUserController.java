@@ -7,6 +7,7 @@ import com.jit.service.TblUserService;
 import com.jit.util.JWTUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Controller;
@@ -58,6 +59,7 @@ public class TblUserController {
     {
         return tblUserService.changePassword(phone,password);
     }
+
     @GetMapping("/countUserNum")
     @ResponseBody
     @ApiOperation("获取所有用户量")
@@ -65,10 +67,19 @@ public class TblUserController {
     {
         return tblUserService.countUserNum();
     }
+
     @PostMapping("/getUserById")
     @ResponseBody
     @ApiOperation("通过用户id获取该用户的所有信息")
-    public Object getUserById(String user_id){
+    public Object getUserById(@RequestParam(value = "user_id") String user_id){
         return tblUserService.getUserById(user_id);
+    }
+
+    @PostMapping("/updateUser")
+    @ResponseBody
+    @ApiOperation("更改个人信息")
+    public  int updateUser(@RequestBody TblUser tblUser) {
+        System.out.println(tblUser.getUsername()+tblUser.getEmail());
+        return tblUserService.updateUser(tblUser);
     }
 }

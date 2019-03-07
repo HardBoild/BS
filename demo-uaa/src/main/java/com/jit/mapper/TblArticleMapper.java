@@ -3,6 +3,7 @@ package com.jit.mapper;
 import com.jit.pojo.TblArticle;
 import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -10,7 +11,7 @@ import java.util.List;
  * Created by Mengyuan.Yu on 2019/2/14.
  */
 @Repository
-public interface TblArticleMapper {
+public interface TblArticleMapper{
     //User提交文章
     @Insert("INSERT INTO TBL_ARTICLE(article_title,article_abstract,user_id,article_body,like_num,article_status)VALUES(#{article_title},#{article_abstract},#{user_id},#{article_body},#{like_num},#{article_status})")
     void insertArticle(@Param("article_title")String article_title,
@@ -43,7 +44,8 @@ public interface TblArticleMapper {
                         @Param("article_id")int article_id);
 
     //删除多个文章
-    @Delete("DELETE FROM TBL_ARTICLE WHERE article_id IN (#{article_id})")
-    int deleteAnArticle(String article_id);
+    @Transactional
+    @Delete("DELETE FROM tbl_article WHERE tbl_article.article_id IN(?1)")
+    int deleteArticle(@Param("article_id") int[] article_id);
 
 }

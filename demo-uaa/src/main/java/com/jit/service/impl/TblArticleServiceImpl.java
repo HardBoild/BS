@@ -8,6 +8,7 @@ import com.jit.service.TblUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -44,11 +45,11 @@ public class TblArticleServiceImpl implements TblArticleService{
     }
 
     @Override
-    public Object getArticlesByUserId(int user_id) {
+    public List getArticlesByUserId(int user_id) {
         List<TblArticle> list=tblArticleMapper.getArticlesByUserId(user_id);
-        JSONObject jsonObject = new JSONObject();
-        jsonObject.put("articleByUserId",list);
-        return jsonObject;
+//        JSONObject jsonObject = new JSONObject();
+//        jsonObject.put("articleByUserId",list);
+        return list;
     }
 
     @Override
@@ -57,10 +58,10 @@ public class TblArticleServiceImpl implements TblArticleService{
     }
 
     @Override
-    public int deleteAnArticle(String article_id) {
-        //String temp = article_id.replace(",","','");
-        //article_id="\'"+article_id+"\'";
-        System.out.println(article_id);
-        return tblArticleMapper.deleteAnArticle(article_id);
+    public int deleteArticles(String[] article_id) {
+        int ids[]=new int[article_id.length];
+        for(int i=0;i<ids.length;i++)
+            ids[i]=Integer.parseInt(article_id[i]);
+        return tblArticleMapper.deleteArticle(ids);
     }
 }

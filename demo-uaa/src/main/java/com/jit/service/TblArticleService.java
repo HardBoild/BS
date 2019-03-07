@@ -12,7 +12,7 @@ public interface TblArticleService {
     int changeStatus(int article_id,int status);
     List<TblArticle> getAllArticle();
     Object getArticlesByCondition(String condition);
-    Object getArticlesByUserId(int user_id);
+    List getArticlesByUserId(int user_id);
     int updateAnArticle(TblArticle tblArticle);
-    int deleteAnArticle(String article_id);
+    int deleteArticles(String[] article_id);
 }
