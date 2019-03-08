@@ -1,7 +1,11 @@
 package com.jit.pojo;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.stereotype.Component;
+
+import javax.persistence.Column;
+import java.util.Date;
 
 /**
  * Created by Mengyuan.Yu on 2019/2/12.
@@ -16,6 +20,15 @@ public class TblArticle {
     private String article_body;
     private int like_num;
     private int article_status;
+
+    public Date getCreate_time() {
+        return create_time;
+    }
+
+    public void setCreate_time(Date create_time) {
+        this.create_time = create_time;
+    }
+    private Date create_time;
     public String getArticle_abstract() {
         return article_abstract;
     }

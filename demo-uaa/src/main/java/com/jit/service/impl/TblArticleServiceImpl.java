@@ -4,12 +4,13 @@ import cn.hutool.json.JSONObject;
 import com.jit.mapper.TblArticleMapper;
 import com.jit.pojo.TblArticle;
 import com.jit.service.TblArticleService;
-import com.jit.service.TblUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 
 /**
@@ -22,7 +23,7 @@ public class TblArticleServiceImpl implements TblArticleService{
 
     @Override
     public int insertArticle(TblArticle tblArticle) {
-        tblArticleMapper.insertArticle(tblArticle.getArticle_title(),tblArticle.getArticle_abstract(),tblArticle.getUser_id(),tblArticle.getArticle_body(),tblArticle.getLike_num(),0);
+        tblArticleMapper.insertArticle(tblArticle.getArticle_title(),tblArticle.getArticle_abstract(),tblArticle.getUser_id(),tblArticle.getArticle_body(),tblArticle.getLike_num(),0,new Date());
         return 1;
     }
 
@@ -47,8 +48,17 @@ public class TblArticleServiceImpl implements TblArticleService{
     @Override
     public List getArticlesByUserId(int user_id) {
         List<TblArticle> list=tblArticleMapper.getArticlesByUserId(user_id);
-//        JSONObject jsonObject = new JSONObject();
-//        jsonObject.put("articleByUserId",list);
+        SimpleDateFormat sdf = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy", Locale.US);
+        //转换时间格式
+        for(TblArticle tblArticle:list){
+            if(tblArticle!=null){
+                String time=tblArticle.getCreate_time().toString();
+                Date date = new Date(time);
+                SimpleDateFormat dateformat1=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                time=dateformat1.format(date);
+                System.out.println(time);
+            }
+        }
         return list;
     }
 

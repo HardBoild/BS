@@ -5,6 +5,7 @@ import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -13,13 +14,14 @@ import java.util.List;
 @Repository
 public interface TblArticleMapper{
     //User提交文章
-    @Insert("INSERT INTO TBL_ARTICLE(article_title,article_abstract,user_id,article_body,like_num,article_status)VALUES(#{article_title},#{article_abstract},#{user_id},#{article_body},#{like_num},#{article_status})")
+    @Insert("INSERT INTO TBL_ARTICLE(article_title,article_abstract,user_id,article_body,like_num,article_status,create_time)VALUES(#{article_title},#{article_abstract},#{user_id},#{article_body},#{like_num},#{article_status},#{create_time})")
     void insertArticle(@Param("article_title")String article_title,
                 @Param("article_abstract")String article_abstract,
                 @Param("user_id")int user_id,
                 @Param("article_body")String article_body,
                 @Param("like_num")int like_num,
-                @Param("article_status")int article_status);
+                @Param("article_status")int article_status,
+                @Param("create_time")Date create_time);
     //审核文章
     @Update("UPDATE TBL_ARTICLE SET article_status=#{article_status} WHERE article_id=#{article_id}")
     int changeStatus(@Param("article_id")int article_id,@Param("article_status")int article_status);
