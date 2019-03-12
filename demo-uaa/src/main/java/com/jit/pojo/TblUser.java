@@ -20,6 +20,16 @@ public class TblUser {
     private int role;
     private String email;
     private Date registration_time;
+
+    public int getIs_certification() {
+        return is_certification;
+    }
+
+    public void setIs_certification(int is_certification) {
+        this.is_certification = is_certification;
+    }
+
+    private int is_certification;
     public int getUser_id() {
         return user_id;
     }

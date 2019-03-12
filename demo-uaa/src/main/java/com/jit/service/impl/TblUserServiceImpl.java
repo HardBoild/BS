@@ -32,7 +32,7 @@ public class TblUserServiceImpl implements TblUserService {
 
     @Override
     public int updateUser(TblUser tblUser) {
-        return tblUserMapper.updateUser(tblUser.getUsername(),tblUser.getPassword(),tblUser.getPhone(),tblUser.getEmail(),tblUser.getUser_id());
+        return tblUserMapper.updateUser(tblUser.getUsername(),tblUser.getPassword(),tblUser.getPhone(),tblUser.getEmail(),tblUser.getUser_id(),tblUser.getIs_certification());
     }
 
     @Override

@@ -40,11 +40,12 @@ public interface TblUserMapper {
     TblUser getUserById(String user_id);
 
     //change own information
-    @Update("UPDATE TBL_USER SET username =#{username},password=#{password},phone=#{phone},email=#{email} WHERE user_id=#{user_id}")
+    @Update("UPDATE TBL_USER SET username =#{username},password=#{password},phone=#{phone},email=#{email},is_certification=#{is_certification} WHERE user_id=#{user_id}")
     int updateUser(@Param("username") String username,
                    @Param("password") String password,
                    @Param("phone") String phone,
                    @Param("email") String email,
-                   @Param("user_id") int user_id);
+                   @Param("user_id") int user_id,
+                   @Param("is_certification") int is_certification);
 
 }
