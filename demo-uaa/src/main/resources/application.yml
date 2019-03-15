@@ -5,7 +5,7 @@ db:
   password:
   database: tourism
 mybatis:
-  type-aliases-package: com.jit.pojo
+  type-aliases-package: com.jit
 spring:
   application:
     name: demo-uaa
