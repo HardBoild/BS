@@ -20,7 +20,7 @@ public class TblArticle {
     private String article_body;
     private int like_num;
     private int article_status;
-
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     public Date getCreate_time() {
         return create_time;
     }

@@ -15,7 +15,7 @@ import java.util.UUID;
  * Created by Mengyuan.Yu on 2019/3/18.
  */
 @Service
-public class TblTblCaptchaServiceImpl implements TblCaptchaService {
+public class TblCaptchaServiceImpl implements TblCaptchaService {
     @Autowired
     private TblCaptchaMapper tblCaptchaMapper;
     //1小时后过期

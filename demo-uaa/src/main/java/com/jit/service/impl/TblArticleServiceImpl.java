@@ -48,17 +48,17 @@ public class TblArticleServiceImpl implements TblArticleService{
     @Override
     public List getArticlesByUserId(int user_id) {
         List<TblArticle> list=tblArticleMapper.getArticlesByUserId(user_id);
-        SimpleDateFormat sdf = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy", Locale.US);
-        //转换时间格式
-        for(TblArticle tblArticle:list){
-            if(tblArticle!=null){
-                String time=tblArticle.getCreate_time().toString();
-                Date date = new Date(time);
-                SimpleDateFormat dateformat1=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-                time=dateformat1.format(date);
-                System.out.println(time);
-            }
-        }
+//        SimpleDateFormat sdf = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy", Locale.US);
+//        //转换时间格式
+//        for(TblArticle tblArticle:list){
+//            if(tblArticle!=null){
+//                String time=tblArticle.getCreate_time().toString();
+//                Date date = new Date(time);
+//                SimpleDateFormat dateformat1=new SimpleDateFormat("yyyy-MM-dd HH:mm");
+//                time=dateformat1.format(date);
+//                System.out.println(time);
+//            }
+//        }
         return list;
     }
 
