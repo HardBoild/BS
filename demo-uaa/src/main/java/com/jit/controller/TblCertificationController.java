@@ -2,6 +2,8 @@ package com.jit.controller;
 
 import com.jit.pojo.TblCertification;
 import com.jit.service.TblCertificationService;
+import com.jit.service.TblUserService;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 @ComponentScan(basePackages = {"com.jit.service"})
 @RequestMapping("/TblCertification")
+@Api(description = "用户身份认证管理")
 public class TblCertificationController {
     @Autowired
     private TblCertificationService tblCertificationService;

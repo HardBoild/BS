@@ -29,8 +29,8 @@ public class TblArticleServiceImpl implements TblArticleService{
 
     @Override
     public int changeStatus(int article_id, int article_status) {
-        return tblArticleMapper.changeStatus(article_id,article_status);
-    }
+    return tblArticleMapper.changeStatus(article_id,article_status);
+}
 
     @Override
     public List<TblArticle> getAllArticle() {
@@ -69,9 +69,9 @@ public class TblArticleServiceImpl implements TblArticleService{
 
     @Override
     public int deleteArticles(String[] article_id) {
-        int ids[]=new int[article_id.length];
-        for(int i=0;i<ids.length;i++)
-            ids[i]=Integer.parseInt(article_id[i]);
+        String ids="";
+        for(int i=0;i<article_id.length;i++)
+            ids+=article_id[i];
         return tblArticleMapper.deleteArticle(ids);
     }
 }

@@ -38,8 +38,10 @@ public class SendMessageUtils {
             JSONObject object = JSONObject.fromObject(result);
             if(object.getInt("error_code")==0){
                 System.out.println(object.get("result"));
+                object.put("count",1);
             }else{
                 System.out.println(object.get("error_code")+":"+object.get("reason"));
+                object.put("count",0);
             }
             return object;
         } catch (Exception e) {

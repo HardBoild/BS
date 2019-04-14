@@ -96,7 +96,7 @@ public class TblUserController {
         return tblUserService.countUserNum();
     }
 
-    @PostMapping("/getUserById")
+    @GetMapping("/getUserById")
     @ResponseBody
     @ApiOperation("通过用户id获取该用户的所有信息")
     public Object getUserById(@RequestParam(value = "user_id") String user_id){
@@ -149,7 +149,6 @@ public class TblUserController {
     /**
      *
      *                前端输入的验证码与生成的对比
-     * @author         ccg
      * @param         request
      * @param         response
      * @param         captchaCode

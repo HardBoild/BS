@@ -20,30 +20,10 @@ var ProvinceName = [
 //var ProvinceName = [
 //    '北京','天津','上海',
 //    '江苏'
-//];
+//];s's
 var PageAtr=[];
 var k=0;
-//function getPage(){
-//    for(var i=0;i<ProvinceName.length;i++)
-//    {
-//        request('http://s.lvmama.com/ticket/H8P1?keyword='+encodeURI(ProvinceName[i])+'&tabType=ticket#list',function(err,res,req){
-//            if(err){
-//                console.log('请求出错');
-//            }else {
-//                var $ = cheerio.load(res.body, {decodeEntities: false});
-//                var page= $('.pagebox a').text();
-//                if(page.length>7)
-//                    PageAtr[k++]=page.substring(6,7);
-//                else if(page.length==7){
-//                    PageAtr[k++]=page.charAt(6);
-//                }else if(page.length<7){
-//                    PageAtr[k++]=page.charAt(page.length-1);
-//                }
-//            }
-//        });
-//    }
-//}
-//getPage();
+
 function show(item){
     for(var i=0;i<ProvinceName.length;i++)
     {

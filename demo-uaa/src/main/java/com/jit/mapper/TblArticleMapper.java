@@ -27,15 +27,15 @@ public interface TblArticleMapper{
     int changeStatus(@Param("article_id")int article_id,@Param("article_status")int article_status);
 
     //所有文章
-    @Select("SELECT * FROM TBL_ARTICLE WHERE article_status=1")
+    @Select("SELECT * FROM TBL_ARTICLE WHERE article_status=1 ORDER BY create_time DESC")
     List<TblArticle> getAllArticle();
 
     //根据条件查询文章
-    @Select("SELECT * FROM TBL_ARTICLE WHERE article_abstract  LIKE\"%\"#{condition}\"%\" AND article_status=1")
+    @Select("SELECT * FROM TBL_ARTICLE WHERE article_abstract  LIKE\"%\"#{condition}\"%\" AND article_status=1 ORDER BY create_time DESC")
     List<TblArticle> getArticlesByCondition(String condition);
 
     //查询用户自己的文章
-    @Select("SELECT * FROM TBL_ARTICLE WHERE user_id = #{user_id}")
+    @Select("SELECT * FROM TBL_ARTICLE WHERE user_id = #{user_id} ORDER BY create_time DESC")
     List<TblArticle> getArticlesByUserId(int user_id);
 
     //编辑文章
@@ -45,9 +45,9 @@ public interface TblArticleMapper{
                         @Param("article_body")String article_body,
                         @Param("article_id")int article_id);
 
-    //删除多个文章
+    //删除文章
     @Transactional
-    @Delete("DELETE FROM tbl_article WHERE tbl_article.article_id IN(?1)")
-    int deleteArticle(@Param("article_id") int[] article_id);
+    @Delete("DELETE FROM tbl_article WHERE tbl_article.article_id =#{article_id}")
+    int deleteArticle(@Param("article_id") String article_id);
 
 }

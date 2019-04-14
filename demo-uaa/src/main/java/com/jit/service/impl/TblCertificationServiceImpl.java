@@ -2,7 +2,9 @@ package com.jit.service.impl;
 
 import com.jit.mapper.TblCertificationMapper;
 import com.jit.pojo.TblCertification;
+import com.jit.pojo.TblUser;
 import com.jit.service.TblCertificationService;
+import com.jit.service.TblUserService;
 import com.jit.util.RandomNumberUtils;
 import com.jit.util.SendMessageUtils;
 import net.sf.json.JSONObject;
@@ -16,6 +18,8 @@ import org.springframework.stereotype.Service;
 public class TblCertificationServiceImpl implements TblCertificationService {
     @Autowired
     private TblCertificationMapper tblCertificationMapper;
+    @Autowired
+    private TblUserService tblUserService;
 
     @Override
     public TblCertification findRealPhone(int user_id) {
@@ -24,6 +28,12 @@ public class TblCertificationServiceImpl implements TblCertificationService {
 
     @Override
     public void addRealPhone(TblCertification tblCertification) {
+        TblUser tblUser=tblUserService.getUserById(String.valueOf(tblCertification.getUser_id()));
+        if(null != tblUser)
+        {
+            tblUser.setIs_certification(1);
+            tblUserService.updateUser(tblUser);
+        }
         tblCertificationMapper.addRealPhone(tblCertification.getUser_id(),tblCertification.getReal_phone());
     }
 
